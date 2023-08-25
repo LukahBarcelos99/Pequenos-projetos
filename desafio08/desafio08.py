@@ -1,45 +1,54 @@
-import random
+from random import randint
+from time import sleep
 
-rejogabilidade = True
+restart = True
+itens = ('PEDRA', 'PAPEL', 'TESOURA')
 
-while rejogabilidade == True:
-    itemJogador = 0
-    itemComputador = 0
-    print("""VAMOS JOGAR JOKENPO!
-      [1] - PEDRA
-      [2] - PAPEL
-      [3] - TESOURA""")
-    
-    itemJogador = int(input("Escolha sua opção: "))
-    print(itemJogador)
-    itemComputador = random.randint(1,3)
+while restart == True:
+    print('''Suas opções:
+[0] - PEDRA
+[1] - PAPEL
+[2] - TESOURA''')
+    computador = randint(0,2)
+    usuario = int(input('FAÇA SUA JOGADA: '))
 
-    
-    if itemJogador == 1 & itemComputador == 3:
-        print ("""Você Escolheu: 1 - PEDRA / Computador Escolheu: 3 - TESOURA""")
-        print("Jogador Ganhou!\n")
-    elif itemJogador == 2 & itemComputador == 1:
-        print ("""Você Escolheu: 2 -PAPEL / Computador Escolheu: 1 - PEDRA""")
-        print("Jogador Ganhou!\n")
-    elif itemJogador == 3 & itemComputador == 2:
-        print ("""Você Escolheu: 3 - TESOURA / Computador Escolheu: 2 - PAPEL""")
-        print("Jogador Ganhou!\n")
-    elif itemJogador == itemComputador:
-        print("EMPATE!\n")
-    elif itemJogador > 3 or itemJogador < 1:
-        print("Erro! Reinicie o game novamente!")
-    else:
-        print('Computador Ganhou!\n')
-        
+    print('JO')
+    sleep(1)
+    print('KEN')
+    sleep(1)
+    print('PÔ!!!')
 
-    
-    restart = input("Deseja jogar novamente? ")
-    if restart == "Sim":
-        rejogabilidade = True
-        itemJogador = 0
-        itemComputador = 0
-    
-    elif restart == "Não":
-        rejogabilidade = False
+    print('-=' * 13)
+    print('O computador escolheu {}.'.format(itens[computador]))
+    print('O usuário escolheu {}.'.format(itens[usuario]))
+    print('-=' * 13)
 
+    if computador == 0: #COMPUTADOR jogou PEDRA
+        if usuario == 0:
+            print('EMPATE!!\n')
+        elif usuario == 1:
+            print('JOGADOR GANHOU!\n')
+        elif usuario == 2:
+            print ('COMPUTADOR GANHOU!\n')
+    if computador == 1: #COMPUTADOR jogou PAPEL
+        if usuario == 0:
+            print ('COMPUTADOR GANHOU!\n')
+        elif usuario == 1:
+            print('EMPATE!!\n')
+        elif usuario == 2:
+            print('JOGADOR GANHOU!\n')
+    if computador == 2: #COMPUTADOR jogou TESOURA
+        if usuario == 0:
+            print('JOGADOR GANHOU!\n')
+        elif usuario == 1:
+            print ('COMPUTADOR GANHOU!\n')
+        elif usuario == 2:
+            print('EMPATE!!\n')
 
+    #REJOGABILIDADE do jogo
+    rejogar = input('Deseja jogar novamente? ')
+    if rejogar == 'sim':
+        restart = True
+    elif rejogar == 'nao':
+        restart = False
+        print('Obrigado por Jogar!\n')
