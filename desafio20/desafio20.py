@@ -7,7 +7,7 @@ while selecao != 5:
     [1] - Somar\n
     [2] - Multiplicar\n
     [3] - Maior\n
-    [4] - Novos números\n
+    [4] - Novos números\n 
     [5] - Sair do programa\n
         """)
     selecao = int(input("Selecione uma opção: "))
